@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=MCreator
-Exec=/opt/mcreator/mcreator.sh
+Exec=/usr/bin/mcreator
 Terminal=false
 Type=Application
 Icon=mcreator
