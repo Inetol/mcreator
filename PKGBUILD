@@ -1,10 +1,10 @@
 # Maintainer: Ivan Gabaldon <aur[at]inetol.net>
 
 pkgname=mcreator
-_pkgvermajor=2023.4
-_pkgverbuild=52316
+_pkgvermajor=2024.1
+_pkgverbuild=15713
 pkgver=$_pkgvermajor.$_pkgverbuild
-pkgrel=2
+pkgrel=1
 pkgdesc='Make Minecraft Java Edition mods, Bedrock Edition Add-Ons, and data packs using visual graphical programming or integrated IDE'
 arch=('x86_64')
 url='https://mcreator.net'
@@ -12,7 +12,7 @@ license=('GPL-3.0-or-later WITH GPL-3.0-interface-exception')
 noextract=("$pkgname-$pkgver.tar.gz")
 source=("$pkgname-$pkgver.tar.gz::https://github.com/$pkgname/$pkgname/releases/download/$pkgver/MCreator.$_pkgvermajor.Linux.64bit.tar.gz"
         "$pkgname.desktop")
-b2sums=('4a67655d546822d4be99b675cac50e70497c842e64f4c753ae56b3fb54b5e1d227bece3ee396c2b14930a59d1861d4e8db8a9ca06cf850996e9d10d6c7e36219'
+b2sums=('2de1d79d10071571ce5c3a1f4bc111328a7a11068bfab79b492188bc54f1cd9ccc0a1381f8ed6136e8fd31ffec5cce5be818b25d875ab887694e31335a69bbf6'
         'ac5a53421869276596ebbc7cccfa7d20aeb63ea3a556d0b77a0b9b936176bcbabe7771be60fc5b034ec79a49da5f4aa538b79e1c6edca478a5614f49ec478d6f')
 
 prepare() {
