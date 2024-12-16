@@ -1,8 +1,8 @@
 # Maintainer: Ivan Gabaldon <aur[at]inetol.net>
 
 pkgname=mcreator
-_pkgvermajor=2024.3
-_pkgverbuild=42716
+_pkgvermajor=2024.4
+_pkgverbuild=51119
 pkgver=$_pkgvermajor.$_pkgverbuild
 pkgrel=1
 pkgdesc='Make Minecraft Java Edition mods, Bedrock Edition Add-Ons, and data packs using visual graphical programming or integrated IDE'
@@ -12,12 +12,10 @@ license=('GPL-3.0-or-later')
 noextract=("$pkgname-$pkgver.tar.gz")
 source=("$pkgname-$pkgver.tar.gz::https://github.com/$pkgname/$pkgname/releases/download/$pkgver/MCreator.$_pkgvermajor.Linux.64bit.tar.gz"
         "$pkgname.desktop")
-b2sums=('0f82978ed299bfcdf05dedd39ee555608913531c88850647470a9ac8207cde253e557fe0062560e3aed76bf86cd59d2d21b0a0186aa7200376d20890afab3d84'
+b2sums=('8ed000eacb0bba161ce21491b0f7d077ed5cb489f39d16b309d6f7a8b308849425baa3a2360b1ec52efdad4ad5a6a851b0208e380e1661f0c053df2333c1d443'
         'ac5a53421869276596ebbc7cccfa7d20aeb63ea3a556d0b77a0b9b936176bcbabe7771be60fc5b034ec79a49da5f4aa538b79e1c6edca478a5614f49ec478d6f')
 
 prepare() {
-    PKGBUILD_JAVA_PATH='$(find /usr/lib/jvm/ -maxdepth 1 -name '\''*21*'\'' -type d -print -quit)/bin/java'
-
     mkdir -p "$pkgname-$pkgver/"
     bsdtar -xpf "$pkgname-$pkgver.tar.gz" --strip-components=1 -C "$pkgname-$pkgver/"
 
@@ -29,7 +27,7 @@ prepare() {
 export CLASSPATH="./$pkgname/lib/mcreator.jar:./lib/*"
 
 cd /opt/$pkgname/
-$PKGBUILD_JAVA_PATH --add-opens=java.base/java.lang=ALL-UNNAMED net.mcreator.Launcher "\$1"
+"\$(find /usr/lib/jvm/ -maxdepth 1 -name '*21*' -type d -print -quit)/bin/java" --add-opens=java.base/java.lang=ALL-UNNAMED net.mcreator.Launcher "\$1"
 EOF
 
     cp "$srcdir/$pkgname.desktop" "$pkgname.desktop"
